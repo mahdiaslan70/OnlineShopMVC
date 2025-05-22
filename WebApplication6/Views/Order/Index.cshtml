@@ -1,0 +1,34 @@
+﻿@model List<OrderItem>
+
+<h5 class="text-center m-4">سفارشات نهایی شده</h5>
+
+<div class="d-flex justify-content-center text-center">
+
+    <table class="table table-striped w-50">
+        <thead>
+            <tr>
+                <th>شماره</th>
+                <th>نام</th>
+                <th>قیمت واحد</th>
+                <th>تعداد</th>
+                <th>قیمت نهایی</th>
+                <th>تاریخ ثبت سفارش</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Product.Name</td>
+                    <td>@item.UnitPrice</td>
+                    <td>@item.Quantity</td>
+                    <td>@(item.UnitPrice*item.Quantity)</td>
+                    <td>@item.Order.OrderedAt</td>
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

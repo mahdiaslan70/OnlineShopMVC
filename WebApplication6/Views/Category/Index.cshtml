@@ -1,0 +1,33 @@
+﻿@model List<Category>
+
+<h5 class="text-center m-4">دسته بندی ها</h5>
+<div class="d-flex justify-content-center">
+    <a asp-controller="Category" asp-action="Add" class="btn btn-primary">افزودن</a>
+</div>
+<div class="d-flex justify-content-center text-center">
+
+    <table class="table table-striped w-50">
+        <thead>
+            <tr>
+                <th>شماره</th>
+                <th>نام</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <th>
+                        <a asp-action="Remove" asp-route-categoryId="@item.Id" class="btn btn-danger">حذف</a>
+                        <a asp-action="Edit" asp-route-categoryId="@item.Id" class="btn btn-warning">ویرایش</a>
+                        <a  asp-action="Products" asp-route-categoryId="@item.Id" class="btn btn-primary">محصولات</a>
+                    </th>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

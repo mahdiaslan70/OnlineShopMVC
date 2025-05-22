@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Index - FashionStore Bootstrap Template</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- Favicons -->
+    <link href="img/favicon.png" rel="icon">
+    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://v1.fontapi.ir/css/Vazir" rel="stylesheet">
+
+
+
+
+
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="~/vendor/aos/aos.css" rel="stylesheet">
+    <link href="~/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="~/vendor/drift-zoom/drift-basic.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="~/css/main.css" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: FashionStore
+    * Template URL: https://bootstrapmade.com/fashion-store-bootstrap-template/
+    * Updated: Apr 26 2025 with Bootstrap v5.3.5
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body class="index-page">
+
+    <header id="header" class="header position-relative">
+        <!-- Top Bar -->
+        <!-- Main Header -->
+        <div class="main-header">
+            <div class="container-fluid container-xl">
+                <div class="d-flex py-3 align-items-center justify-content-between">
+
+                    <!-- Logo -->
+                    <a href="index.html" class="logo d-flex align-items-center">
+                        <!-- Uncomment the line below if you also wish to use an image logo -->
+                        <!-- <img src="assets/img/logo.webp" alt=""> -->
+                        <h1 class="sitename">آنلاین <span>شاپ</span></h1>
+                    </a>
+
+                    <!-- Search -->
+                    @* <form class="search-form desktop-search-form">
+                    <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for products...">
+                    <button class="btn search-btn" type="submit">
+                    <i class="bi bi-search"></i>
+                    </button>
+                    </div>
+                    </form> *@
+
+                    <!-- Actions -->
+                    <div class="header-actions d-flex align-items-center justify-content-end">
+
+                        <!-- Mobile Search Toggle -->
+                        <button class="header-action-btn mobile-search-toggle d-xl-none" type="button" data-bs-toggle="collapse" data-bs-target="#mobileSearch" aria-expanded="false" aria-controls="mobileSearch">
+                            <i class="bi bi-search"></i>
+                        </button>
+
+                        <ul class="navbar-nav">
+                            <!-- Account -->
+                            <partial name="_LoginPartial" />
+                        </ul>
+
+
+                        @* <!-- Cart -->
+                        <div class="dropdown cart-dropdown">
+                        <button class="header-action-btn" data-bs-toggle="dropdown">
+                        <i class="bi bi-cart3"></i>
+                        <span class="action-text d-none d-md-inline-block">Cart</span>
+                        <span class="badge">3</span>
+                        </button>
+
+                        </div> *@
+
+                        <!-- Mobile Navigation Toggle -->
+                        <i class="mobile-nav-toggle d-xl-none bi bi-list me-0"></i>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="header-nav">
+            <div class="container-fluid container-xl position-relative">
+                <nav id="navmenu" class="navmenu">
+                    <ul>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Index" class="active">خانه</a></li>
+                        <li><a href="about.html">درباره</a></li>
+                        <li><a asp-area="" asp-controller="Category" asp-action="Index">دسته بندی</a></li>
+                        <li><a  asp-area="" asp-controller="Products" asp-action="Index">محصولات</a></li>
+                        <li><a asp-area="Admin" asp-controller="Products" asp-action="Index" >اضافه کردن محصول</a></li>
+                        <li><a asp-area="" asp-controller="Cart" asp-action="Index">سبد خرید</a></li>
+                        <li><a asp-area="Admin" asp-controller="Users" asp-action="Index">کاربران</a></li>
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

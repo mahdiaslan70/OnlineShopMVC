@@ -1,0 +1,23 @@
+﻿@model List<UserWithRolesViewModel>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ایمیل</th>
+            <th>نقش‌ها</th>
+            <th>عملیات</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Email</td>
+                <td>@string.Join(", ", user.Roles)</td>
+                <td>
+                    <a asp-area="Admin" asp-controller="Users" asp-action="ManageRoles" asp-route-id="@user.Id" class="btn btn-sm btn-secondary">مدیریت نقش</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

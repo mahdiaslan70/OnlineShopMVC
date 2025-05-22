@@ -1,0 +1,18 @@
+﻿@model WebApplication6.Models.Category
+
+<div class="row d-flex justify-content-center">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group d-flex align-items-center" style="margin-top:50px;">
+                <label asp-for="Name" class="form-label ms-3"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="d-flex justify-content-center mt-4  ">
+                <button type="submit" class="btn btn-warning">ویرایش</button>
+            </div>
+        </form>
+    </div>
+</div>
