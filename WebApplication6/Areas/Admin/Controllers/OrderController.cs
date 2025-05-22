@@ -1,11 +1,13 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApplication6.Data;
 using WebApplication6.Models;
 
-namespace WebApplication6.Controllers
+namespace WebApplication6.Areas.Admin.Controllers
 {
+    [Authorize(Roles="Admin")]
     public class OrderController : Controller
     {
 

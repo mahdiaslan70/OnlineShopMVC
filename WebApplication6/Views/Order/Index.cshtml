@@ -7,8 +7,10 @@
     <table class="table table-striped w-50">
         <thead>
             <tr>
-                <th>شماره</th>
-                <th>نام</th>
+                <th>شماره سفارش</th>
+                <th>شماره کاربر</th>
+                <th>نام کاربر</th>
+                <th>نام محصول</th>
                 <th>قیمت واحد</th>
                 <th>تعداد</th>
                 <th>قیمت نهایی</th>
@@ -19,7 +21,9 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>@item.Id</td>
+                    <td>@item.Order.Id</td>
+                    <td>@item.Order.UserId</td>
+                    <td>@item.Order.User.FullName</td>
                     <td>@item.Product.Name</td>
                     <td>@item.UnitPrice</td>
                     <td>@item.Quantity</td>
