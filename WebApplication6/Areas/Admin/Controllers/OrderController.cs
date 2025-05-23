@@ -37,7 +37,8 @@ namespace WebApplication6.Areas.Admin.Controllers
                 {
                     ProductId = item.ProductId,
                     Quantity = item.Quantity,
-                    UnitPrice = item.Product.Price
+                    UnitPrice = item.Product.Price,
+                   
 
                 }).ToList()
 
@@ -59,6 +60,8 @@ namespace WebApplication6.Areas.Admin.Controllers
                 .Include(p => p.Product)
                 .Where(o => o.Order.UserId == userId)
                 .ToListAsync();
+
+            ViewBag.FullName = _userManager.GetUserName(User);
 
 
             return View(orderItems);

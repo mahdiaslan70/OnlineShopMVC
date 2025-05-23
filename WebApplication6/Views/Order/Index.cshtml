@@ -15,6 +15,7 @@
                 <th>تعداد</th>
                 <th>قیمت نهایی</th>
                 <th>تاریخ ثبت سفارش</th>
+                <th>وضعیت سفارش</th>
             </tr>
         </thead>
         <tbody>
@@ -23,13 +24,13 @@
                 <tr>
                     <td>@item.Order.Id</td>
                     <td>@item.Order.UserId</td>
-                    <td>@item.Order.User.FullName</td>
+                    <td>@ViewBag.FullName</td>
                     <td>@item.Product.Name</td>
                     <td>@item.UnitPrice</td>
                     <td>@item.Quantity</td>
-                    <td>@(item.UnitPrice*item.Quantity)</td>
+                    <td>@(item.UnitPrice * item.Quantity)</td>
                     <td>@item.Order.OrderedAt</td>
-
+                    <td>@(item.Order.IsProcessed ? "پردازش شده" : "پردازش نشده")</td>
                 </tr>
             }
 
