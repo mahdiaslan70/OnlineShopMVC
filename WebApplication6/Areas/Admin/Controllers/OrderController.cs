@@ -23,7 +23,7 @@ namespace WebApplication6.Areas.Admin.Controllers
         }
 
 
-        public async Task<IActionResult> AddToOrders(List<OrderItem> orderItems)
+        public async Task<IActionResult> AddToOrders()
         {
             var user = await _userManager.GetUserAsync(User);
             if (user == null) return NotFound();

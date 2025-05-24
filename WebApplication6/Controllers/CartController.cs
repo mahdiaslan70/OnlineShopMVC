@@ -40,7 +40,19 @@ namespace WebApplication6.Controllers
         {
             var user = await _userManager.GetUserAsync(User);
 
-            await _cartServices.AddToCartAsync(user.Id, productId, quantity);
+            var product = _context.Products.Find(productId);
+            if (product == null) { return NotFound(); }
+            if (product.Stock > quantity)
+            {
+                await _cartServices.AddToCartAsync(user.Id, productId, quantity);
+                product.Stock -= quantity;
+                await _context.SaveChangesAsync();
+            }
+            else
+            {
+                ViewBag.Message = "محصول موجود نمیباشد";
+            }
+
 
             return RedirectToAction("Index");
         }
