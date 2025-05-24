@@ -8,6 +8,7 @@ using WebApplication6.Models;
 namespace WebApplication6.Areas.Admin.Controllers
 {
     [Authorize(Roles="Admin")]
+    [Area("Admin")]
     public class OrderController : Controller
     {
 
