@@ -7,7 +7,7 @@ using WebApplication6.Models;
 
 namespace WebApplication6.Areas.Admin.Controllers
 {
-    [Authorize(Roles="Admin")]
+    [Authorize(Roles = "Admin")]
     [Area("Admin")]
     public class OrderController : Controller
     {
@@ -22,8 +22,9 @@ namespace WebApplication6.Areas.Admin.Controllers
 
         }
 
+        [HttpPost]
 
-        public async Task<IActionResult> AddToOrders()
+        public async Task<IActionResult> AddToOrders(int quantity)
         {
             var user = await _userManager.GetUserAsync(User);
             if (user == null) return NotFound();
@@ -34,12 +35,13 @@ namespace WebApplication6.Areas.Admin.Controllers
             {
                 UserId = user.Id,
                 IsPaid = true,
+
                 OrderItems = cartItems.Select(item => new OrderItem
                 {
                     ProductId = item.ProductId,
-                    Quantity = item.Quantity,
-                    UnitPrice = item.Product.Price,
-                   
+                    Quantity = quantity,
+                    UnitPrice = item.Product.Price
+
 
                 }).ToList()
 
