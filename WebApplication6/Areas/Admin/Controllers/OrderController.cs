@@ -39,13 +39,18 @@ namespace WebApplication6.Areas.Admin.Controllers
                 OrderItems = cartItems.Select(item => new OrderItem
                 {
                     ProductId = item.ProductId,
-                    Quantity = quantity,
+                    Quantity = item.Quantity,
                     UnitPrice = item.Product.Price
 
 
                 }).ToList()
 
             };
+
+            foreach (var item in cartItems)
+            {
+                item.Product.Stock -= quantity;
+            }
 
             _context.Orders.Add(order);
             _context.CartItems.RemoveRange(cartItems);
