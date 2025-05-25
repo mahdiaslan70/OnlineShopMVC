@@ -7,7 +7,7 @@ namespace WebApplication6.Models
         public int  Id { get; set; }
 
         [Required(ErrorMessage ="لطفا نام را وارد کنید")]
-        [Display(Name="نام")]
+        [Display(Name="نام دسته بندی")]
         public string Name { get; set; }
 
 

@@ -36,6 +36,7 @@ namespace WebApplication6.Controllers
             return View();
         }
 
+        [HttpPost]
         public async Task<IActionResult> AddToCart(int productId, int quantity = 1)
         {
             var user = await _userManager.GetUserAsync(User);
@@ -50,7 +51,7 @@ namespace WebApplication6.Controllers
             }
             else
             {
-                ViewBag.Message = "محصول موجود نمیباشد";
+                ViewBag.Message = "محصول به تعداد کافی موجود نمیباشد";
             }
 
 

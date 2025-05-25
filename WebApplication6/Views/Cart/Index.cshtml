@@ -19,12 +19,7 @@
                 <tr>
                     <td>@item.Id</td>
                     <td>@item.Product.Name</td>
-                    <td>
-                        <form method="post" asp-area="Admin" asp-controller="Order" asp-action="AddToOrders">
-                            <input type="number" name="quantity" value="@item.Quantity" />
-                            <button type="submit">نهایی کردن خرید</button>
-                        </form>
-                    </td>
+                    <td>@item.Quantity</td>
                     <td>
                         <a asp-controller="Cart" asp-action="RemoveFromCart" asp-route-cartItemId="@item.Id" class="btn btn-danger">حذف</a>
                     </td>
@@ -50,7 +45,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">لغو</button>
-                    @* <a class="btn btn-success" asp-area="Admin" asp-controller="Order" asp-action="AddToOrders">تایید</a> *@
+                    <a class="btn btn-success" asp-area="Admin" asp-controller="Order" asp-action="AddToOrders">تایید</a>
 
                 </div>
             </div>
